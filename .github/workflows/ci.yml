@@ -20,14 +20,14 @@ jobs:
       - name: validate HTML
         run: echo "Basic validation done"
 
-      - name: build step
-        run: |
-          mkdir dist
-          cp index.html style.css script.js dist/
+      # - name: build step
+      #   run: |
+      #     mkdir dist
+      #     cp index.html style.css script.js dist/
 
-      - name: upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          - name: frontend-build
-            path: dist/
+      # - name: upload artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     - name: frontend-build
+      #       path: dist/
 
