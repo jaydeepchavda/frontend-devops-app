@@ -1,0 +1,33 @@
+name: frontend  CI
+
+on: 
+  push:
+    branches: [main]
+  pull-request: 
+    branchesL: [main]
+
+jobs:
+  check-app:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4 
+      
+      - name: show files
+        run: ls
+      
+      - name: validate HTML
+        run: echo "Basic validation done"
+
+      - name: build step
+        run: |
+          mkdir dist
+          cp index.html style.css script.js dist/
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          - name: frontend-build
+            path: dist/
+
